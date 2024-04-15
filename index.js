@@ -14,6 +14,12 @@ const server = createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.end(data);
     });
+  } else if (req.url === "/contact-me") {
+    fs.readFile("contact-me.html", (err, data) => {
+      if (err) throw err;
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(data);
+    });
   } else {
     fs.readFile("404.html", (err, data) => {
       if (err) throw err;
